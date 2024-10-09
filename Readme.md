@@ -1,6 +1,6 @@
 <div style="display: flex; align-items: center; justify-content: center;">
-  <div style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-    <img src="./assets/logo.png" width:"100px";height="100px"/>
+  <div style="width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+    <img src="./assets/logo.png" width:"25px";height="25px"/>
   </div>
   <div>
     <h2>SWIFT: On-the-Fly Self-Speculative Decoding for LLM Inference Acceleration</h2>
@@ -14,6 +14,7 @@
 <a href="https://github.com/hemingkx/SWIFT/pulls">
     <img src="https://img.shields.io/badge/Contributions-welcome-blue.svg?style=flat"></a>
 </p>
+
 
 ## Introduction
 
