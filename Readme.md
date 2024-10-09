@@ -1,6 +1,4 @@
-<div align="center">
-  <h2><img src="assets/logo.png" height="28px"/>SWIFT: On-the-Fly Self-Speculative Decoding for LLM Inference Acceleration</h2> 
-</div>
+<img src="assets/logo.png" alt="SWIFT" width="100" align="left"><div align="center"><h1>&nbsp;SWIFT: On-the-Fly Self-Speculative Decoding for LLM Inference Acceleration</h1></div>
 <p align="center">
 <a href="">
   <img src="https://img.shields.io/badge/Arxiv-TBD-orange.svg"></a> 
