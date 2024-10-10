@@ -1,5 +1,7 @@
 import copy
+import os.path
 import random
+import json
 import logging
 import torch
 import numpy as np
@@ -40,6 +42,23 @@ def set_logger(log_path=None):
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(logging.Formatter('%(message)s'))
         logger.addHandler(stream_handler)
+
+
+def get_cache_configuration(file_name='skip_layers.json', model_name='llama-2-13b', task_name='cnndm'):
+    """
+    Get the cached SWIFT configuration for LLM acceleration.
+    """
+    if not os.path.exists(file_name):
+        print("Cache file not found.")
+        return None
+    with open(file_name) as f:
+        data = json.load(f)
+        if f'{model_name}_{task_name}' not in data.keys():
+            print("Configuration not found in cache.")
+            return None
+        else:
+            print(f"Use cached configuration in {file_name}.")
+            return data[f'{model_name}_{task_name}']['attention'], data[f'{model_name}_{task_name}']['mlp']
 
 def get_choices_list(prob_list, logits_processor=None):
     """

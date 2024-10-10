@@ -220,6 +220,12 @@ if __name__ == "__main__":
         help="Bayes Optimization of Layer set.",
     )
     parser.add_argument(
+        "--cache-hit",
+        action="store_true",
+        default=False,
+        help="Whether to use cached SWIFT configuration.",
+    )
+    parser.add_argument(
         "--dtype",
         type=str,
         default="float16",
@@ -250,7 +256,7 @@ if __name__ == "__main__":
                        + "-top-p-" + str(args.top_p) + "-seed-" + str(args.seed) + "-max_new_tokens-" + str(args.max_new_tokens)+ "-opt_interval-" + str(args.opt_interval)
                        + "-bayes_interval-" + str(args.bayes_interval) + "-max_opt-" + str(args.max_opt_iter) + "-max_tolerance-" + str(args.max_tolerance_iter)
                        + "-max_score-" + str(args.max_score) + "-context_window-" + str(args.context_window) + "-skip_ratio-" + str(args.skip_ratio))
-    answer_file = f"test/{args.task_name}/{args.task_name}_{args.data_num}/model_answer/{args.model_id}/{args.model_name}.jsonl"
+    answer_file = f"outputs/{args.task_name}/{args.task_name}_{args.data_num}/model_answer/{args.model_id}/{args.model_name}.jsonl"
     set_logger()
 
     print(f"Output to {answer_file}")
@@ -270,9 +276,15 @@ if __name__ == "__main__":
     else:
         logits_processor = None
 
-    # Unified layer set initialization
-    _attn_skip_layer_id_set = np.arange(1, model.config.num_hidden_layers - 1, 2) # keep the first and last layer
-    _mlp_skip_layer_id_set = np.arange(1, model.config.num_hidden_layers - 1, 2)
+    if args.cache_hit:
+        # Load the cached layer set configuration
+        args.optimization, args.bayes=False, False
+        _attn_skip_layer_id_set, _mlp_skip_layer_id_set = get_cache_configuration(model_name=args.model_id,
+                                                                                  task_name=args.task_name)
+    else:
+        # Unified layer set initialization
+        _attn_skip_layer_id_set = np.arange(1, model.config.num_hidden_layers - 1, 2)  # keep the first and last layer
+        _mlp_skip_layer_id_set = np.arange(1, model.config.num_hidden_layers - 1, 2)
 
     model.set_skip_layers(_attn_skip_layer_id_set, _mlp_skip_layer_id_set)
 

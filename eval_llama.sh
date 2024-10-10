@@ -12,8 +12,8 @@ OPT_INTERVAL=1
 BAYES_INTERVAL=25
 MAX_OPT_ITER=1000
 MAX_TOLERANCE_ITER=300
-MAX_SCORE=0.95
-CONTEXT_WINDOW=32
+MAX_SCORE=0.93
+CONTEXT_WINDOW=50
 SKIP_RATIO=0.45
 TASK_NAME="cnndm" # cnndm, humaneval
 
@@ -24,4 +24,4 @@ CUDA_VISIBLE_DEVICES=${GPU_DEVICES} python -m evaluation_llama.inference_baselin
 CUDA_VISIBLE_DEVICES=${GPU_DEVICES} python -m evaluation_llama.inference_swift --model-path $MODEL_PATH --model-id ${MODEL_NAME} \
   --temperature $TEMP --top-p ${TOP_P} --dtype $torch_dtype --task-name ${TASK_NAME} --data-num ${DATA_NUM} --max-new-tokens ${MAX_NEW_TOKENS} \
   --seed $SEED --context-window ${CONTEXT_WINDOW} --opt-interval ${OPT_INTERVAL} --bayes-interval ${BAYES_INTERVAL} --max-opt-iter ${MAX_OPT_ITER} \
-  --max-tolerance-iter ${MAX_TOLERANCE_ITER} --max-score ${MAX_SCORE} --skip-ratio ${SKIP_RATIO} --optimization --bayes
+  --max-tolerance-iter ${MAX_TOLERANCE_ITER} --max-score ${MAX_SCORE} --skip-ratio ${SKIP_RATIO} --optimization --bayes # --cache-hit
