@@ -1,13 +1,14 @@
 <img src="assets/logo.png" alt="SWIFT" width="100" align="left"><div align="center"><h1>&nbsp;SWIFT: On-the-Fly Self-Speculative Decoding for LLM Inference Acceleration</h1></div>
 
 <p align="center">
-<a href="https://arxiv.org/pdf/2410.06916">
+<a href="https://arxiv.org/abs/2410.06916">
   <img src="https://img.shields.io/badge/Arxiv-2410.06916-orange.svg"></a> 
 <a href="https://opensource.org/licenses/Apache-2.0">
   <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg"></a> 
 <a href="https://github.com/hemingkx/SWIFT/pulls">
     <img src="https://img.shields.io/badge/Contributions-welcome-blue.svg?style=flat"></a>
 </p>
+
 
 
 
