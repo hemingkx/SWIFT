@@ -26,6 +26,10 @@ During the optimization stage, SWIFT performs an optimization step prior to each
 
 ![swift](./assets/swift.png)
 
+## Todo
+- [x] Support both greedy and sampling inference (maintaining output distribution).
+- [x] Support cached layer configuration
+
 ## Installation
 
 ```
@@ -37,11 +41,14 @@ pip install -r requirements.txt
 
 ## Inference
 
-Run command lines in `eval_llama.sh`, the results will be stored in `test/.../model_answer/`.
+Run command lines in `eval_llama.sh`, the results will be stored in `outputs/.../model_answer/`.
 
 ```
 ./eval_llama.sh
 ```
+
+> For quick start with cached layer configuration, uncomment `--cache-hit` in `eval_llama.sh`.
+>
 
 ## Speedup Report
 
