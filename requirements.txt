@@ -9,6 +9,6 @@ sentencepiece==0.1.99
 protobuf==3.19.0
 maturin==0.12
 datasets
-bayesian-optimization
+bayesian-optimization==1.5.1
 rouge_score
 human_eval
