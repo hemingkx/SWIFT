@@ -67,14 +67,12 @@ This codebase is built from [Self-SD](https://github.com/dilab-zju/self-speculat
 If you find the resources in this repository useful, please cite our paper:
 
 ```
-@misc{xia2024swiftontheflyselfspeculativedecoding,
-      title={SWIFT: On-the-Fly Self-Speculative Decoding for LLM Inference Acceleration}, 
-      author={Heming Xia and Yongqi Li and Jun Zhang and Cunxiao Du and Wenjie Li},
-      year={2024},
-      eprint={2410.06916},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2410.06916}, 
+@inproceedings{xia2025swift,
+  title={{SWIFT}: On-the-Fly Self-Speculative Decoding for {LLM} Inference Acceleration},
+  author={Heming Xia and Yongqi Li and Jun Zhang and Cunxiao Du and Wenjie Li},
+  booktitle={The Thirteenth International Conference on Learning Representations},
+  year={2025},
+  url={https://openreview.net/forum?id=EKJhH5D5wA}
 }
 ```
 
